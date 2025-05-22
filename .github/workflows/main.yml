@@ -1,0 +1,20 @@
+name: Trigger Azure DevOps Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  trigger-azure-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Azure DevOps Pipeline
+        uses: Azure/pipelines@v1
+        with:
+          azure-devops-project-url: 'https://dev.azure.com/leokulendran/DevOps-Demo'
+          azure-pipeline-name: 'iamLeoKulendran.Dual-Axis-Illusion'
+          azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
